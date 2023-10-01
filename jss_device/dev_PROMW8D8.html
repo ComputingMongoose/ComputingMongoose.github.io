@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JSS Device PROMW8D8</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li class="currentmenu"><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../jss/about.html">About JSS</a></li>
+<li><a href="../jss/devices.html">Simulated Devices</a></li>
+<li><a href="../jss/screenshots.html">Screenshots</a></li>
+</ul></li>
+<li ><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li ><a href="../utils/index_utils.html">Utilities</a></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>JSS Device PROMW8D8</h1>
+
+<p>This device simulates a Programmable Read Only Memory (PROM) with word size 8-bits and data bus connection 8-bits. This type of memory is probably the most widely used in 8-bit architectures (and newer), such as the <a href="../cpu/intel8008.html">Intel 8008</a> and the <a href="../cpu/intel8080.html">Intel 8080</a>.
+It is similar to the <a href="../jss_device/dev_MemoryW8D8.html">MemoryW8D8</a> device. To use the PROM functionality, it must be attached to a PROM Controller, such as <a href="../jss_device/dev_PROMControllerBasic.html">PROMControllerBasic</a>.</p>
+
+<h2>Options</h2>
+<ul>
+<li><b>initialization_policy</b> - Decides how this memory is initialized. Values:
+	<ul>
+	<li>ZERO - All locations are initialized with zero.</li>
+	<li>RANDOM - Locations are initialized with random values.</li>
+	<li>FIXED - Locations are initialized with a fixed value, set by the "fixed_value" option.</li>
+	<li>VALUES - Individual values are specified in the "initialization_values" option.</li>
+	</ul>
+</li>
+<li><b>fixed_value</b> - Value used to initialize memory when the "initialization_policy" is set to "FIXED".</li>
+<li><b>initialization_values</b> - List of values used to initialize the memory, separated by space or comma. Only the number of values present in the list are used (some memory locations may remain uninitialized if the list has less values than the memory size).</li>
+<li><b>load_hex</b> - Specifies a HEX file that will be read in the memory.</li>
+<li><b>load_hex_offset</b> - This value is subtracted from the address specified in the HEX file.</li>
+<li><b>load_bin</b> - Specifies a BINARY file that will be read in the memory.</li>
+<li><b>load_bin_offset</b> - Specifies the starting address for the BINARY file. Its use differs from the HEX file, since the BINARY file does not have any address specified internally.</li>
+<li><b>invert_nibbles</b> - When loading either a HEX file or a BINARY file, it will invert the nibbles. This may be useful with 4-bit memory if the values were stored in the HEX file in reverse order.</li>
+</ul>
+
+<h2>Implementation</h2>
+<a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMW8D8.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMW8D8.java</a>
+
+<h2>Example configuration</h2>
+<pre>
+<code>
+{
+	"name":"ProgramRAM",
+	"type":"PROMW8D8",
+	"configuration":[
+		{"key":"size", "value":4096},
+		{"key":"initialization_policy", "value":"ZERO"}
+	]
+}
+</code>
+</pre>
+
+<h2>Example simulation</h2>
+<a href="https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_4/basic_system_with_monitor" target="_blank">https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_4/basic_system_with_monitor</a>
+
+<h2>Youtube</h2>
+
+<div>
+
+<div style="display:inline-block">
+<iframe width="400" height="225" src="https://www.youtube.com/embed/JWYkGZlKFoE?si=WRuQSvSvif9V2-9A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<div style="display:inline-block">
+<iframe width="400" height="225" src="https://www.youtube.com/embed/tzIShbgwf3c?si=90IzTw8TpeBde_8S" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>

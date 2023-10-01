@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JSS Device ControlBusBasic</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li class="currentmenu"><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../jss/about.html">About JSS</a></li>
+<li><a href="../jss/devices.html">Simulated Devices</a></li>
+<li><a href="../jss/screenshots.html">Screenshots</a></li>
+</ul></li>
+<li ><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li ><a href="../utils/index_utils.html">Utilities</a></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>JSS Device ControlBusBasic</h1>
+
+<p>
+This device simulates a basic control BUS. It allows setting different signals on the BUS, by name. Data can be associated with the signals, if needed.
+In certain old architectures, an interrupt signal would require having the jump address present on the data bus as well. This can be simulated using the data associated with the interrupt signal. This is the case with the <a href="<? $sys->getLink('dev_Intel8008.php');?>">Simulated Intel 8008 CPU</a>. In a real <a href="../cpu/intel8008.html">Intel 8008</a>, when an interrupt signal is received, an instruction is forced on the data bus, usually indicating a jump to the interrupt servicing routine. In the simulated implementation, the instruction to be executed is placed in the data associated with the interrupt signal on the control BUS. Other CPUs may not use the associated data with signals, having interrupt handling routines at fixed addresses.
+</p>
+
+<h2>Options</h2>
+<ul>
+<li><b>signals</b> - Comma separated list of signal names that may be sent accross this BUS.</li>
+</ul>
+
+<h2>Implementation</h2>
+<a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/bus/impl/ControlBusBasic.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/bus/impl/ControlBusBasic.java</a>
+
+<h2>Example configuration</h2>
+<pre>
+<code>
+{
+	"name":"ControlBUS",
+	"type":"ControlBusBasic",
+	"configuration":[
+		{"key":"signals", "value":"INT,S0,S1,S2"}
+	]
+}
+</code>
+</pre>
+
+<h2>Example simulation</h2>
+<a href="https://github.com/ComputingMongoose/Simulations/blob/main/simulations/Intellec_8_mod_80/cpm22/simulation.json" target="_blank">https://github.com/ComputingMongoose/Simulations/blob/main/simulations/Intellec_8_mod_80/cpm22/simulation.json</a>
+
+<h2>Youtube</h2>
+
+<div>
+
+<div style="display:inline-block">
+<iframe width="400" height="225" src="https://www.youtube.com/embed/60hCz_WTylA?si=vnOIGPaZ5qfj9b9y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<div style="display:inline-block">
+<iframe width="400" height="225" src="https://www.youtube.com/embed/bcF80A43d_A?si=Dr-ADVBHRmXwBWmf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>

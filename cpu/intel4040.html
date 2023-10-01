@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Intel 4040</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li ><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li class="currentmenu"><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../cpu/intel4004.html">Intel 4004</a></li>
+<li><a href="../cpu/intel4040.html">Intel 4040</a></li>
+<li><a href="../cpu/intel8008.html">Intel 8008</a></li>
+<li><a href="../cpu/intel8080.html">Intel 8080</a></li>
+</ul></li>
+<li ><a href="../utils/index_utils.html">Utilities</a></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>Intel 4040</h1>
+
+<p>The Intel 4040, introduced in 1974, is the successor of <a href="../cpu/intel4004.html">Intel 4004</a>. From a programming perspective, the new microprocessor is very similar to the Intel 4004, with several additions: interrupts, halt/stop, extended program stack, two register sets selectable via an index register. New supporting ICs were also introduced. 
+</p>
+
+<div>
+<div style="display:inline-block">
+
+<a title="Rudiniemeijer, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Intel_4040_processor_pinout.png" target="_blank"><img width="300" alt="Intel 4040 processor pinout" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Intel_4040_processor_pinout.png/512px-Intel_4040_processor_pinout.png"></a>
+
+</div>
+
+<div style="display:inline-block">
+
+<a title="Appaloosa, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Intel_4040_arch.svg" target="_blank"><img width="400" alt="Intel 4040 arch" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Intel_4040_arch.svg/512px-Intel_4040_arch.svg.png"></a>
+
+</div>
+</div>
+
+<h2>Main Characteristics</h2>
+<ul>
+<li>4 pins for Data, Address, Instructions, and I/O (D0,D1,D2,D3)</li>
+<li>12-bit addresses, 8-bit instructions, and 4-bit data words (sent over multiple clock cycles on the 4 data pins)</li>
+<li>4 pins for RAM bank selection (CM-RAM)</li>
+<li>2 pins for ROM bank selection (CM-ROM)</li>
+<li>Separate program and data storage (different memory areas)</li>
+<li>740KHz maximum clock rate</li>
+<li>Pins for external hardware interrupt (INT) and interrupt acknowledge (INT ACK)</li>
+<li>From the CPU Datasheet: "The CPU can directly address 4K 8-bit instruction words or 8K with a bank switch. 7 levels of subroutine nesting … and 24 index registers."</li>
+<li>24 4-bit registers (grouped in 2 banks: 16+8), 1 accumulator, address stack (PC+7 levels), register bank index</li>
+<li>60 instructions in total: 46 instructions from Intel 4004 (41 8-bits instructions + 5 16-bits instructions) + 14 new instructions (8-bits)</li>
+<li>Similar to the 4004, it uses big-endian storage (a nice discussion about this topic is <a href="https://retrocomputing.stackexchange.com/questions/18224/which-endian-was-the-intel-4004" target="_blank">here</a> )
+</ul>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=mYX6OZTyfCVnxbJy&amp;list=PL7-u-wmV6bWq97qpt6-5A1Q1T1Rn36Q51&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h2>Java System Simulator</h2>
+<ul>
+<li>Intel 4040 CPU simulation implementation in Java <a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/cpu/impl/Intel4040.java" target="_blank">here</a></li>
+<li>Intellec 4 mod 40 system simulations <a href="https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_4_mod_40" target="_blank">here</a></li>
+<li>Details about the Intel4040 virtual device <a href="../jss_device/dev_Intel4040.html">here</a></li>
+</ul>
+
+<h2>Tools</h2>
+<ul>
+<li>Macroassembler AS <a href="http://john.ccac.rwth-aachen.de:8000/as/index.html" target="_blank">Home</a> | <a href="http://john.ccac.rwth-aachen.de:8000/as/as_EN.html" target="_blank">Manual</a></li>
+<li>ROM dumps and information <a href="https://www.retrotechnology.com/restore/intel440_roms.html" target="_blank">here</a></li>
+</ul>
+
+<h2>Useful resources</h2>
+<ul>
+<li><a href="http://datasheets.chipdb.org/Intel/MCS-40/4040.pdf" target="_blank">Intel 4040 Datasheet</a></li>
+<li><a href="http://bitsavers.informatik.uni-stuttgart.de/components/intel/MCS40/MCS-40_Users_Manual_Nov74.pdf" target="_blank">MCS-40 Users manual</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intel_4040" target="_blank">https://en.wikipedia.org/wiki/Intel_4040</a></li>
+</ul>
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>

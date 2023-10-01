@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>PHP SiteMapGenerator</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li ><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li ><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li class="currentmenu"><a href="../utils/index_utils.html">Utilities</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../utils/sitemapgenerator.html">PHP SiteMapGenerator</a></li>
+<li><a href="../utils/websitegenerator.html">PHP StaticWebsiteGenerator</a></li>
+</ul></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>PHP SiteMapGenerator</h1>
+
+<p>
+This is a PHP utility for generating a SiteMap. Generation can be as easy as providing a list of files with a base URL (see example1) or more complex, providing individual options for different files (see example2). The generated file can be either in XML or TXT format. The generated file can be used for indexing a website in a search engine, such as Google. For more details about the file format see: <a href="https://sitemaps.org/protocol.html" target="_blank">https://sitemaps.org/protocol.html</a> .
+</p>
+<p>
+Its primary intended usage is for generating sitemaps for static websites. You pass an array of file paths and get a sitemap file generated in the specified destination path. The generation process will assign a different change frequency and priority to index files. However, the generation process can be fully controlled by passing a detailed array of options to the generation process, as detailed below. Take a look at the examples folder for different usage scenarios.
+</p>
+
+<p>This utility class is used to generate the sitemap for this website.</p>
+
+<p>GitHub: <a href="https://github.com/ComputingMongoose/SimpleSiteMapGenerator" target="_blank">https://github.com/ComputingMongoose/SimpleSiteMapGenerator</a></p>
+
+<h2>Example</h2>
+<pre>
+<code>
+require_once "SimpleSiteMapGenerator.php";
+
+$pages=[
+"index.html",
+"file1.html",
+"file2.html"
+];
+
+$sgen=new SimpleSiteMapGenerator();
+$sgen->setBaseURL("https://mywebsite");
+$sgen->generateSiteMapXML($pages);
+$sgen->generateSiteMapTXT($pages);
+</code>
+</pre>
+
+<p>More examples are available in GitHub.</p>
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>

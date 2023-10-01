@@ -1,0 +1,90 @@
+body {
+	padding:0px;
+	margin:0px;
+}
+
+div.leftbar {
+	float:left;
+	display:inline-block;
+	z-index:3;
+	left:0px;
+	top:0px;
+	position:fixed;
+	width:300px;
+	border-right: 1px solid black;
+	min-height: 100vh;
+    overflow:auto;
+    height:100%;
+}
+
+div.content1 {
+	vertical-align:top;
+	margin-left: 300px;
+}
+
+div.content {
+	padding: 30px;
+    margin-right: 60px;
+}
+
+div.title {
+	display:block;
+	padding: 30px;
+	text-align:center;
+}
+
+ul.menu li {
+padding-left:30px;
+padding-top:8px;
+padding-bottom:8px;
+font-weight:bold;
+font-family:"ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji";
+font-size: 16px;
+}
+
+ul.menu li.submenu ul li {
+padding-left:0px;
+}
+
+ul.menu li a {
+	color: black;
+	text-decoration:none;
+}
+
+ul.menu li a:hover {
+	text-decoration:underline;
+	color: #ff5d00;
+}
+
+ul.menu {
+	list-style-image:  url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Cg%20fill%3D%22%23ff5d00%22%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%225%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+	list-style-position: inside;
+	margin:0px;
+	margin-block-start:0px;
+	margin-block-end:0px;
+	padding-inline-start:0px;
+}
+
+ul.menu li.submenu {
+	list-style:none;
+}
+
+ul.menu li.submenu ul {
+	list-style-image:  url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%208%208%22%3E%3Cg%20fill%3D%22%23101010%22%3E%3Ccircle%20cx%3D%224%22%20cy%3D%224%22%20r%3D%224%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);
+	list-style-position: inside;
+}
+
+.currentmenu {
+    background-color: rgb(216 222 236);
+}
+
+ul.menu li.submenu ul li:before {
+  content:'';
+  position:relative;
+  border-left:1px solid black;
+  left:-11px;
+  bottom:0;
+  z-index:-1;
+  height:100%
+}
+
