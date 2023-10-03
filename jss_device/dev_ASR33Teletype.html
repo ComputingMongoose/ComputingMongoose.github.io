@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>JSS Device GenericTerminal</title>
+<title>JSS Device ASR33Teletype</title>
 <link rel="stylesheet" href="../css/style.css"/>
 <script async src="../scripts/utils.js"></script>
 
@@ -40,10 +40,10 @@
 
 <div class="content1">
 <div class="content">
-<h1>JSS Device GenericTerminal</h1>
+<h1>JSS Device ASR33Teletype</h1>
 
-<p>This device simulates a generic serial terminal (with keyboard and display). The terminal supports control sequences, but currently only regular characters (no bold, underline, inverse, color, etc.). For details on terminal control sequences see: <a href="https://www.real-world-systems.com/docs/ANSIcode.html" target="_blank">https://www.real-world-systems.com/docs/ANSIcode.html</a>, <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub86.pdf" target="_blank">https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub86.pdf</a>, <a href="https://vt100.net/docs/vt100-ug/chapter3.html" target="_blank">https://vt100.net/docs/vt100-ug/chapter3.html</a>. Certain functions and control characters can be disabled by using different options (see below). </p>
-<p>This device allows for data files to be sent or recorded. When recording is enabled, the data file will contain all the control sequences sent by the host system.</p>
+<p>This device simulates an <a href="../serial/asr33.html">ASR-33 teletype</a> (with keyboard and paper tape reader). The real device was connected via a current loop interface, however the simulated device can be connected using an UART for RS-232 communication (for real hardware, modern RS-232 adapter boards do exist). The tape can be changed by selecting a file. When the paper tape reader is used, the file will be sent byte by byte. This is particularly useful for loading HEX files into a monitor software.
+</p>
 
 <h2>Options</h2>
 <ul>
@@ -60,38 +60,28 @@
 <li><b>transmit_set_bit_7</b> - if set to 1, will always set bit number 7 to 1, when data is sent.</li>
 
 
-<li><b>space_adv</b> - if set to 1, space will only advance the cursor without being recorded as a character (existing characters will not be overwritten). Default value is 0.</li>
-<li><b>clr_scrn</b> - if set to 1, enables clear screen control sequences. Default value is 1.</li>
-<li><b>enable_kb_lock</b> - if set to 1, enables locking/unlocking the keyboard with control sequences. Default value is 1. If you keep this value set, you should make sure the software has a way of unlocking the keyboard, otherwise the simulation may become unusable, requiring a restart. In some systems, you need a second terminal to be connected in order to be able to activate the unlock on the first terminal.</li>
-<li><b>cur_ctl</b> - if set to 0, certain cursor control operations are disabled. This particularly include operations that would move the cursor to an upper line. This is particularly useful if simulating devices such as teletypes that does not allow complete cursor control. Default value is 1.</li>
-<li><b>enable_ansi</b> - if set to 1 will enable ANSI control sequences (starting with an &lt;ESCAPE&gt; character). Default value is 0.</li>
-<li><b>num_lines</b> - number of text lines. Default value is 24.</li>
+<li><b>enable_load_tape</b> - if set to 0, disables changing of the tape file. Default value is 1.</li>
+<li><b>tape_in</b> - sets the default file to be loaded in the paper tape reader.</li>
+<li><b>tape_in_compute_checksums</b> - if set to 1, will assume the tape is a HEX file and will compute the checksum when the file is loaded. Default value is 0.</li>
 </ul>
 
 <h2>Implementation</h2>
-<a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/peripherals/GenericTerminal.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/peripherals/GenericTerminal.java</a>
+<a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/peripherals/ASR33Teletype.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/peripherals/ASR33Teletype.java</a>
 
 <h2>Example configuration</h2>
 <pre>
 <code>
 {
-	"name":"Terminal",
-	"type":"GenericTerminal",
-	"configuration":[
-		{"key":"num_lines","value":25},
-		{"key":"uart","value":1},
-		{"key":"uart_receive_complement","value":0},
-		{"key":"uart_send_complement","value":0},
-		{"key":"uart_status_data_send_ready_bit","value":1},
-		{"key":"enable_ansi","value":1},
-		{"key":"enable_kb_lock","value":0}
-	]
+	"name":"ASR33",
+	"type":"ASR33Teletype",
+	"configuration":[]
 }
 </code>
 </pre>
 
+
 <h2>Example simulation</h2>
-<a href="https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_8_mod_80/cpm22" target="_blank">https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_8_mod_80/cpm22</a>
+<a href="https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_4_mod_40/basic_system_with_monitor" target="_blank">https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_4_mod_40/basic_system_with_monitor</a>
 
 </div>
 </div>

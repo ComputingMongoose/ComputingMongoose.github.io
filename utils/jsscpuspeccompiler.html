@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>JSSCPUSpecCompiler</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li ><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li ><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li ><a href="../serial/index_serial.html">Serial Peripherals</a></li>
+<li class="currentmenu"><a href="../utils/index_utils.html">Utilities</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../utils/hexfileviewer.html">HEX File Viewer</a></li>
+<li><a href="../utils/jsscpuspeccompiler.html">JSSCPUSpecCompiler</a></li>
+<li><a href="../utils/sitemapgenerator.html">PHP SiteMapGenerator</a></li>
+<li><a href="../utils/websitegenerator.html">PHP StaticWebsiteGenerator</a></li>
+</ul></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>JSSCPUSpecCompiler</h1>
+
+<p>
+This is a Java application initially designed for compiling CPU spec files into Java source code, usable inside the <a href="../jss/about.html">JavaSystemSimulator</a> project. The application can also be used to define and expand macros (similar to macro-supporting languages, such as C/C++/ASM) in any Java (or other programming language) source code.
+</p>
+
+<p>GitHub: <a href="https://github.com/ComputingMongoose/JSSCPUSpecCompiler" target="_blank">https://github.com/ComputingMongoose/JSSCPUSpecCompiler</a></p>
+
+
+<h2>Macro definition</h2>
+<p>A macro is defined on a line starting with "#define", followed by the macro name and parameters. If there are no macro parameteres, empty parantheses are required. The macro definition is written between "#{" and "#}". Currently, the macro is assumed to be on one line.</p>
+
+<p>Examples:</p>
+<pre>
+<code>
+#define GET_B() #{ registers[0] #}
+#define DEC_SP() #{ SP--; SP&amp;=0xFFFF; #}
+#define STORE(a,v) #{ memoryBus.write(a,v); #}
+#define SET_A(v) #{ acc=(v) &amp; 0xFF; #}
+</code>
+</pre>
+
+<h2>Macro usage</h2>
+<p>To use a macro in the source code you place the name of the macro preceeded by a "#" character. It is possible to use macros inside other macros. It is possible to use macros as parameters to other macros.</p>
+
+<p>Presently, macro expansion is performed recursively. Thus, if you have many macros called from inside other macros this will increase processing time. However, this will have no effect at runtime on the produced code.</p>
+
+<p>Depending on the macro definition, it may not be required to end the macro call with a semicolon (for example if the definition itself contains a final semicolon). The macro expansion process does not impose any rules on ending the call with or without a semicolon.</p>
+
+<p>Examples:</p>
+<pre>
+<code>
+#SET_A(#LOAD(#GET_DE()));
+#SET_L(#READ_NEXT())
+tmp1=#READ_NEXT();
+tmp2=((#READ_NEXT())&lt;&lt;8)|tmp1;
+#define SET_ALU_FLAGS_CARRY(new) #{ #SET_FLAG_C( ((new&amp;0x100)==0x100)?(1):(0)); #}
+</code>
+</pre>
+
+<h2>Features for CPU specifications</h2>
+<p>CPU instructions often include fixed bits, identifying an instruction type, and variable bits identifying registers, condition flags or instruction variants. In the JSSCPUSpecCompiler it is possible to define bit values associated with intruction options as "MAP"s. These MAPs may be used in defining the macro name to be expanded (in a way they act as a special type of macro that will be expanded before regular macros). Inside each MAP definition are bit values followed by a string encoding, useful for invoking macros or other functions. The MAP definition ends with a line containing the keyword "END".</p>
+
+<p>MAP example:</p>
+<pre>
+<code>
+MAP RP
+00 BC
+01 DE
+10 HL
+11 SP
+END
+</code>
+</pre>
+
+<p>MAP usage example:</p>
+<pre>
+<code>
+tmp1=#GET_$RP$();
+</code>
+</pre>
+
+<p>Complete CPU instructions can be specified as a combination of fixed bits and MAPs. These are separated using "|".</p>
+
+<p>Example instruction:</p>
+<pre>
+<code>
+00|RP|0011
+</code>
+</pre>
+<p>The instruction specification should be preceded by a line identifying the instruction name. This special line starts with ":", followed by the instruction name. The end of an instruction definition block is indicated by the next instruction specification or by a special line containing ":.".</p>
+
+<p>Complete example:</p>
+<pre>
+<code>
+MAP SSS
+111 A
+000 B
+001 C
+010 D
+011 E
+100 H
+101 L
+END
+
+MAP DDD
+111 A
+000 B
+001 C
+010 D
+011 E
+100 H
+101 L
+END
+
+:MOV R1,R2
+01|DDD|SSS
+#SET_$DDD$(#GET_$SSS$())
+
+:.
+</code>
+</pre>
+<p>The above example assumes there are macro definitions for #SET_A, #SET_B, #SET_C,... , #GET_A, #GET_B, #GET_c, ..., #GET_L.</p>
+
+<p>More examples are available in <a href="https://github.com/ComputingMongoose/JSSCPUSpecCompiler" target="_blank">GitHub</a>.</p>
+<p>Complete CPU specifications are available in the <a href="https://github.com/ComputingMongoose/CPUSpecifications" target="_blank">CPUSpecifications</a> project at GitHub.</p>
+
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>

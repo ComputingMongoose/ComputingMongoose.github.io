@@ -6,6 +6,8 @@ https://computingmongoose.github.io/cpu/intel8080.html
 https://computingmongoose.github.io/index.html
 https://computingmongoose.github.io/jss/about.html
 https://computingmongoose.github.io/jss/devices.html
+https://computingmongoose.github.io/jss_device/dev_ADM3ATerminal.html
+https://computingmongoose.github.io/jss_device/dev_ASR33Teletype.html
 https://computingmongoose.github.io/jss_device/dev_ControlBusBasic.html
 https://computingmongoose.github.io/jss_device/dev_DataBusNoError.html
 https://computingmongoose.github.io/jss_device/dev_GenericTerminal.html
@@ -31,6 +33,11 @@ https://computingmongoose.github.io/jss_device/dev_ROMW8D64.html
 https://computingmongoose.github.io/jss_device/dev_ROMW8D8.html
 https://computingmongoose.github.io/jss/index_jss.html
 https://computingmongoose.github.io/jss/screenshots.html
+https://computingmongoose.github.io/serial/adm3a.html
+https://computingmongoose.github.io/serial/asr33.html
+https://computingmongoose.github.io/serial/index_serial.html
+https://computingmongoose.github.io/utils/hexfileviewer.html
 https://computingmongoose.github.io/utils/index_utils.html
+https://computingmongoose.github.io/utils/jsscpuspeccompiler.html
 https://computingmongoose.github.io/utils/sitemapgenerator.html
 https://computingmongoose.github.io/utils/websitegenerator.html

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>HEX File Viewer</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li ><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li ><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li ><a href="../serial/index_serial.html">Serial Peripherals</a></li>
+<li class="currentmenu"><a href="../utils/index_utils.html">Utilities</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../utils/hexfileviewer.html">HEX File Viewer</a></li>
+<li><a href="../utils/jsscpuspeccompiler.html">JSSCPUSpecCompiler</a></li>
+<li><a href="../utils/sitemapgenerator.html">PHP SiteMapGenerator</a></li>
+<li><a href="../utils/websitegenerator.html">PHP StaticWebsiteGenerator</a></li>
+</ul></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>HEX File Viewer</h1>
+
+<p>
+This is a Java application for viewing .HEX files (used for EEPROM programmers, simulators for computing architectures, loading programs into old monitor applications).
+</p>
+<p>
+This application is not intended for viewing binary files in hexadecimal. It will only work with .HEX files (also known as Intel hexadecimal object file format, Intel hex format or Intellec Hex). Viewing a HEX file may be useful when using computer simulators, like the <a href="../jss/about.html">Java System Simulator</a> project.
+</p>
+
+<p>GitHub: <a href="https://github.com/ComputingMongoose/HEXFileViewer" target="_blank">https://github.com/ComputingMongoose/HEXFileViewer</a></p>
+
+<p>The HEXFileViewer application displays details about each HEX file record. It highlights invalid records. When a record is selected (with a mouse click), details are shown, including record fields, error indications, and, if possible, suggestions on how to correct the errors.</p>
+
+<p><img src="../img/screenshot_hexfileviewer.jpg" width="1000px"/></p>
+
+<h2>HEX file format</h2>
+<p>HEX files consist of ASCII text lines that are separated by line feed or carriage return characters or both. Each text line contains hexadecimal characters that encode multiple binary numbers. The binary numbers may represent data, memory addresses, or other values, depending on their position in the line and the type and length of the line. Each text line is called a record. Each record contains:
+<ul>
+<li>Start code: the ASCII colon character ':'</li>
+<li>Byte count: number of bytes in the data field</li>
+<li>Address: 16-bit beginning memory address of the data</li>
+<li>Record type: one byte (00=data, 01=end of file, etc.)</li>
+<li>Data: a sequence of Byte count bytes written in hexadecimal</li>
+<li>Checksum: two's complement of the least significant byte (LSB) of the sum of all decoded byte values in the record preceding the checksum.</li>
+</ul>
+</p>
+<p>Read more here: <a href="https://en.wikipedia.org/wiki/Intel_HEX" target="_blank">https://en.wikipedia.org/wiki/Intel_HEX</a></p>
+
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>
