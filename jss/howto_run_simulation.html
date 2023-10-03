@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>How to run a simulation ?</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li class="currentmenu"><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../jss/about.html">About JSS</a></li>
+<li><a href="../jss/devices.html">Simulated Devices</a></li>
+<li><a href="../jss/howto_run_simulation.html">How to run a simulation ?</a></li>
+<li><a href="../jss/howto_simulation.html">How to create a simulation ?</a></li>
+<li><a href="../jss/screenshots.html">Screenshots</a></li>
+</ul></li>
+<li ><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li ><a href="../serial/index_serial.html">Serial Peripherals</a></li>
+<li ><a href="../utils/index_utils.html">Utilities</a></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>How to run a simulation ?</h1>
+
+<p><a href="../jss/about.html">Java System Simulator</a> is a Java application. It is packaged as a JAR file. It is executed as a regular JAR file, from the command line, with the simulation folder given as an argument. This page will guide you through the steps required to execute a simulation.</p>
+
+<p><b>Step 1.</b> Make sure you have Java properly installed on your system. This <a href="https://www.java.com/en/download/help/download_options.html" target="_blank">page</a> contains instructions for installing Java on different operating systems. The application is compiled targeting JavaSE-1.8. Therefore you will need at least Java 1.8. Any newer version of Java will work.</p>
+
+<p><b>Step 2.</b> Download the latest release of the Java System Simulator. Releases are available from GitHub <a href="https://github.com/ComputingMongoose/JavaSystemSimulator/releases" target="_blank">here</a>. You should also check the main GitHub <a href="_https://github.com/ComputingMongoose/JavaSystemSimulator" target="_blank">repository</a> for additional information.</p>
+
+<p><b>Step 3.</b> Make sure you have at least one simulation to run. You can find pre-defined simulations in the <a href="https://github.com/ComputingMongoose/Simulations" target="_blank">Simulations</a> GitHub repository. A good place to start is the Intellec 8 mod 80 with Intel 8080 CPU and CP/M 2.2. You can find it <a href="https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_8_mod_80/cpm22" target="_blank">here</a>. Remember to download the entire folder into a folder on your system. Alternatively, you can read about <a href="../jss/howto_simulation.html">How to create a simulation</a> and create your own simulation in a dedicated folder.</p>
+
+<p><b>Step 4.</b> Run the Java System Simulator JAR with the simulation folder as a parameter. You should run this from a command prompt and check the display to make sure there are no errors shown in the console.</p>
+<pre>
+<code>
+java -jar JavaSystemSimulator.jar &lt;simulation_folder&gt;
+</code>
+</pre>
+
+<p>Now you should have a running simulation!</p>
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>

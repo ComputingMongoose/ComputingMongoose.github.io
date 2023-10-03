@@ -31,6 +31,8 @@ https://computingmongoose.github.io/jss_device/dev_ROMW8D16.html
 https://computingmongoose.github.io/jss_device/dev_ROMW8D32.html
 https://computingmongoose.github.io/jss_device/dev_ROMW8D64.html
 https://computingmongoose.github.io/jss_device/dev_ROMW8D8.html
+https://computingmongoose.github.io/jss/howto_run_simulation.html
+https://computingmongoose.github.io/jss/howto_simulation.html
 https://computingmongoose.github.io/jss/index_jss.html
 https://computingmongoose.github.io/jss/screenshots.html
 https://computingmongoose.github.io/serial/adm3a.html
