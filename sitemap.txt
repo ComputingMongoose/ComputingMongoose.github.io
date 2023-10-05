@@ -15,6 +15,11 @@ https://computingmongoose.github.io/jss_device/dev_Intel4004.html
 https://computingmongoose.github.io/jss_device/dev_Intel4040.html
 https://computingmongoose.github.io/jss_device/dev_Intel8008.html
 https://computingmongoose.github.io/jss_device/dev_Intel8080.html
+https://computingmongoose.github.io/jss_device/dev_intellec_4_40_frontpanel.html
+https://computingmongoose.github.io/jss_device/dev_intellec_4_frontpanel.html
+https://computingmongoose.github.io/jss_device/dev_intellec_8_80_frontpanel.html
+https://computingmongoose.github.io/jss_device/dev_intellec_8_frontpanel.html
+https://computingmongoose.github.io/jss_device/dev_MDS230_frontpanel.html
 https://computingmongoose.github.io/jss_device/dev_MemoryW4D4.html
 https://computingmongoose.github.io/jss_device/dev_MemoryW8D16.html
 https://computingmongoose.github.io/jss_device/dev_MemoryW8D32.html

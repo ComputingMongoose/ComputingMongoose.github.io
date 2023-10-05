@@ -9,6 +9,11 @@
 <li><b>write_enable</b> - Default setting for the write_enable flag.
 </ul>
 
+<h2>Device Connections</h2>
+<ul>
+<li><b>attachPROM</b> - attaches a PROM that will be controlled by this device</li>
+</ul>
+
 <h2>Implementation</h2>
 <a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMControllerBasic.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMControllerBasic.java</a>
 

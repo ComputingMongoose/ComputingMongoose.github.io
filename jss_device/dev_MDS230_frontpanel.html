@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>JSS Device PROMControllerBasic</title>
+<title>JSS Device MDS230_frontpanel</title>
 <link rel="stylesheet" href="../css/style.css"/>
 <script async src="../scripts/utils.js"></script>
 
@@ -42,38 +42,38 @@
 
 <div class="content1">
 <div class="content">
-<h1>JSS Device PROMControllerBasic</h1>
+<h1>JSS Device MDS230_frontpanel</h1>
 
-<p>This device controls write access to a Programmable Read Only Memory (PROM) module. A PROM module can always be read, but writing is allowed only if the controller is first notified.</p>
-
-<h2>Options</h2>
-<ul>
-<li><b>write_enable</b> - Default setting for the write_enable flag.
-</ul>
+<p>This device simulates the front panel of an Intellec Series II Model 230 system, with an <a href="../jss_device/dev_Intel8080.html">Intel 8080</a> CPU.
+</p>
 
 <h2>Device Connections</h2>
 <ul>
-<li><b>attachPROM</b> - attaches a PROM that will be controlled by this device</li>
+<li><b>attachToDataBus</b> - Allows attaching to a data bus for accessing data or controlling the data bus.</li>
+
+<li><b>attachToControlBus</b> - Allows attaching to a control bus for sending and reading signals, with associated data.</li>
+
+<li><b>attachGenericDevice</b> - Allows attaching a device that will be accessed or controlled by this device. Even though this method allows attaching any device, further casts may happen internally. Therefore you should only attach supported devices.</li>
 </ul>
 
+
 <h2>Implementation</h2>
-<a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMControllerBasic.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMControllerBasic.java</a>
+<a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/peripherals/MDS230_frontpanel.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/peripherals/MDS230_frontpanel.java</a>
 
 <h2>Example configuration</h2>
 <pre>
 <code>
 {
-	"name":"ProgramRAMController",
-	"type":"PROMControllerBasic",
-	"configuration":[
-		{"key":"write_enable", "value":0}
-	]
+	"name":"FrontPanel",
+	"type":"MDS230_frontpanel",
+	"configuration":[]
 }
 </code>
 </pre>
 
 <h2>Example simulation</h2>
-<a href="https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_4/basic_system_with_monitor" target="_blank">https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_4/basic_system_with_monitor</a>
+<a href="https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_8_mod_80/cpm22" target="_blank">https://github.com/ComputingMongoose/Simulations/tree/main/simulations/Intellec_8_mod_80/cpm22</a>
+
 </div>
 </div>
 

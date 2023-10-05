@@ -1,0 +1,1 @@
+<li><b>attachGenericDevice</b> - Allows attaching a device that will be accessed or controlled by this device. Even though this method allows attaching any device, further casts may happen internally. Therefore you should only attach supported devices.</li>

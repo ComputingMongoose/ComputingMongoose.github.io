@@ -10,6 +10,11 @@ It is similar to the <a href="<?php echo $sys->getLink('dev_MemoryW4D4.php');?>"
 <?php include "common_dev_memory.php"; ?>
 </ul>
 
+<h2>Device Connections</h2>
+<ul>
+<?php include "common_dev_prom_conn.php"; ?>
+</ul>
+
 <h2>Implementation</h2>
 <a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMW4D4.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/memory/impl/PROMW4D4.java</a>
 

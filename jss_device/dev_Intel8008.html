@@ -54,6 +54,15 @@ The real CPU has an interrupt signal. When this is asserted, an instruction can 
 <li><b>breakpoints</b> - Address list (comma separated) for breakpoints. When a breakpoint is reached, the simulation will be automatically paused.</li>
 </ul>
 
+<h2>Device Connections</h2>
+<ul>
+<li><b>attachToDataBus</b> - Allows attaching to a data bus for accessing data or controlling the data bus.</li>
+
+<li><b>attachToControlBus</b> - Allows attaching to a control bus for sending and reading signals, with associated data.</li>
+
+</ul>
+
+
 <h2>Control BUS signals</h2>
 <ul>
 <li><b>INT</b> - If set to "1", indicates an interrupt. Data associated with this signal is used as the next instruction to be executed.</li>

@@ -12,6 +12,11 @@ This device simulates a basic data BUS. It sends data between different devices.
 <li><b>suspend_on_access</b> - Comma separated list of addresses. Accessing one of these addresses will cause the simulation to become suspended (similar to a CPU breakpoint). Useful for debugging programs.</li>
 </ul>
 
+<h2>Device Connections</h2>
+<ul>
+<?php include "common_dev_bus_conn.php"; ?>
+</ul>
+
 <h2>Implementation</h2>
 <a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/bus/impl/DataBusNoError.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/bus/impl/DataBusNoError.java</a>
 

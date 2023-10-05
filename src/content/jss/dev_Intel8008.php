@@ -12,6 +12,13 @@ The real CPU has an interrupt signal. When this is asserted, an instruction can 
 <?php include "common_dev_cpu.php"; ?>
 </ul>
 
+<h2>Device Connections</h2>
+<ul>
+<?php include "common_dev_dataaccess_conn.php"; ?>
+<?php include "common_dev_controldevice_conn.php"; ?>
+</ul>
+
+
 <h2>Control BUS signals</h2>
 <ul>
 <li><b>INT</b> - If set to "1", indicates an interrupt. Data associated with this signal is used as the next instruction to be executed.</li>

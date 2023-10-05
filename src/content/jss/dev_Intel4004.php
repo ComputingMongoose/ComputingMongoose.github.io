@@ -53,6 +53,13 @@
 <?php include "common_dev_cpu.php"; ?>
 </ul>
 
+<h2>Device Connections</h2>
+<ul>
+<?php include "common_dev_dataaccess_conn.php"; ?>
+<?php include "common_dev_controldevice_conn.php"; ?>
+</ul>
+
+
 <h2>Implementation</h2>
 <a href="https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/cpu/impl/Intel4004.java" target="_blank">https://github.com/ComputingMongoose/JavaSystemSimulator/blob/main/src/jss/devices/cpu/impl/Intel4004.java</a>
 
