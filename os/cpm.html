@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>CP/M</title>
+<link rel="stylesheet" href="../css/style.css"/>
+<script async src="../scripts/utils.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BT4H4TG4TN"></script>
+
+<!-- Sharethis button -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=651121d40e7b8300197c7c8a&product=sticky-share-buttons&source=platform" async="async"></script>
+
+<!-- Pinterest -->
+<script  type="text/javascript" async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+
+</head>
+
+<body>
+
+<div class="leftbar">
+	<div class="title"><a href="../index.html"><img src="../img/logo_300_96.png" width="250px"/></a></div>
+	<ul class="menu">
+	<li ><a href="../jss/index_jss.html">JavaSystemSimulator</a></li>
+<li ><a href="../cpu/index_cpu.html">CPUs</a></li>
+<li ><a href="../serial/index_serial.html">Serial Peripherals</a></li>
+<li class="currentmenu"><a href="../os/index_os.html">Operating Systems</a></li>
+<li class="submenu currentmenu"><ul><li><a href="../os/cpm.html">CP/M</a></li>
+</ul></li>
+<li ><a href="../utils/index_utils.html">Utilities</a></li>
+	</ul>
+	
+	<div style="position:absolute; bottom:0;">
+	<a href="https://www.youtube.com/@ComputingMongoose" target="_blank"><img src="../img/video.png" width="50px"/></a>
+	<a href="https://github.com/ComputingMongoose" target="_blank"><img src="../img/github.png" width="50px"/></a>
+	<a href="https://www.pinterest.com/computingm/" target="_blank"><img src="../img/pinterest.png" width="50px"/></a>
+	</div>
+</div>
+
+<div class="content1">
+<div class="content">
+<h1>CP/M</h1>
+
+<p>CP/M (Control Program/Monitor or Control Program for Microcomputers) is an operating system initially created in 1974 for microcomputers based on <a href="#">Intel 8080</a> CPUs, by Gary Kildall of Digital Research Inc. Version 2.0 was released in 1979, soon followed by version 2.2. Version 3.0 (also called CP/M Plus) was released in 1982. The last release was 3.1 in 1983. CP/M versions are available for systems using different CPUs, including Intel 8080, Z80, and Intel 8086.
+</p>
+
+<h2>Commands</h2>
+<p>CP/M has a number of internal commands (also called "resident" commands). In addition, any executable program (with a ".COM" extension) can be considered as a "transient" command. In this section, there will be presented the internal commands and the transient commands available on the CP/M 2.2 system disk. In order to execute a transient command, the system disk must be present in the drive and either be selected or the command must be prefixed with the drive letter (similar to any executable program). Equipment manufacturers who licensed CP/M for use with their systems may have included additional commands on the system disk. These will not be covered here. 
+</p>
+<p>Transient commands end with ".COM" (the normal extension for exacutable files), however when running them the extension may be ommited. Thus "PIP.COM" can also be executed by simply typing "PIP". This is true for all executables.</p>
+<p>In the following list of commands, the first 7 are resident commands while the following are transient commands.</p>
+
+<h3>1. Drive selection</h3>
+<p>CP/M allows selecting a drive by specifying its letter followed by a colon sign. Example: "A:", "B:". The new drive becomes active and this is reflected in the operating system's prompt ("A>", "B>").</p>
+
+<h3>2. DIR</h3>
+<p>This command allows visualizing the contents of a disk. By default it will show all files without the SYS attribute from the currently selected disk. However, the command allows specifying a different disk or a pattern for displaying files. Examples: </p>
+<ul><li><b>DIR</b> - Default behaviour</li>
+<li><b>DIR B:</b> - Displays files from the B drive</li>
+<li><b>DIR B:*.COM</b> - Displays executable files (with ".COM" extension) from the B drive</li>
+<li><b>DIR TEST???.BAS</b> - Displays files starting with "TEST", followed by any 3 letters, with a ".BAS" extension, from the current drive</li>
+</ul>
+
+<h3>3. TYPE</h3>
+<p>Displays the contents of a text file. Example "TYPE TEST1.BAS".</p>
+
+<h3>4. ERA</h3>
+<p>Deletes files from disk. By default there is no UNDELETE/UNERASE command available, therefore this command must be used with care. Read-Only files cannot be deleted with ERA. For deleting a Read-Only file, first the attribute must be removed using STAT and then ERA can be used to delete the file. Examples:</p>
+<ul><li><b>ERA TEST.BAS</b> - Deletes the file "TEST.BAS" from the current drive</li>
+<li><b>ERA B:*.BAS</b> - Deletes all files with ".BAS" extension from the B drive</li>
+<li><b>ERA *.*</b> - Deletes all the files from the current disk</li>
+</ul>
+
+<h3>5. REN</h3>
+<p>This command renames a file. The REN command operates on a single drive. It is not possible to move a file by renaming it to another drive. Examples:</p>
+<ul><li><b>REN TEST.OLD=TEST.BAS</b> - Renames the file "TEST.BAS" to "TEST.OLD".</li>
+<li><b>REN B:MYTEST.BAS=B:TEST.BAS</b> - Renames the file "TEST.BAS" to "MYTEST.BAS" on the B drive.</li>
+</ul>
+
+<h3>6. SAVE</h3>
+<p>The SAVE command stores a number of memory pages (256-byte blocks), starting at address 0100H, to a disk file. This is useful for moving programs to a different user area (such as moving PIP). It is also useful if a file was loaded into memory by some other program. Examples:</p>
+<ul><li><b>SAVE 10 TEST.COM</b> - Saves 10 pages of memory into TEST.COM on the current drive</li>
+<li><b>SAVE 29 PIP.COM</b> - Saves 29 pages of memory into PIP.COM. This is useful when transferring PIP to a new user area.</li>
+</ul>
+
+<h3>7. USER</h3>
+<p>Selects an user area. The default user area is 0. Possible values range from 0 to 15. A user area can be used to store user files in separate spaces, when multiple users are using the same computer, or to organize the files. Transfer between user areas can be done with PIP. 
+ Examples:</p>
+<ul><li><b>USER 5</b> - Changes to user area 5.</li>
+<li><b>USER 0</b> - Changes to the default user area 0.</li>
+</ul>
+
+
+<h3>7. USER</h3>
+<p>Selects an user area. The default user area is 0. Possible values range from 0 to 15. A user area can be used to store user files in separate spaces, when multiple users are using the same computer, or to organize the files. Transfer between user areas can be done with PIP. 
+ Examples:</p>
+<ul><li><b>USER 5</b> - Changes to user area 5.</li>
+<li><b>USER 0</b> - Changes to the default user area 0.</li>
+</ul>
+
+<h3>8. PIP</h3>
+<p>The main purpose of the PIP ("Peripheral Interchange Program") command is to copy files. However, it accepts also devices (such as CON:, PRN:, etc.) as input/output. This allows for other usage scenarios, like creating a file, printing a file, displaying a file, etc. 
+ Examples:</p>
+<ul><li><b>PIP TEST1.BAK=TEST1.BAS</b> - Makes a copy of the file TEST1.BAS.</li>
+<li><b>PIP CON:=TEST1.BAS</b> - Displays the file TEST1.BAS (similar to "TYPE TEST1.BAS").</li>
+<li><b>PIP TEST.TXT=CON:</b> - Creates the file TEST.TXT and allows you to enter text from the console (end the file with CTRL+Z).</li>
+<li><b>PIP TEST.TXT=TEST.TXT[G0]</b> - Copies the file TEST.TXT from user area 0 to the current user area (assuming the current user area was changed with a USER command; PIP needs to be available in the current user area).</li>
+</ul>
+
+<h3>9. MOVCPM</h3>
+<h3>10. SYSGEN</h3>
+<p>MOVCPM and SYSGEN allow creating a new CP/M system disk for a different memory size (the default memory size used in CP/M 2.2 is 20Kb). MOVCPM alone can create a new in-memory CP/M system for a new memory size. SYSGEN allows saving the in-memory system or just copying an existing system disk. The parameters are not checked, a command like "MOVCPM 128" may cause the system to hang. A generated SYSGEN disk may refuse to boot. The commands should be used with care and a copy of the original system disk should always be kept.
+ Examples:</p>
+<ul><li><b>MOVCPM</b> - Produces and runs a CP/M system using all the available memory.</li>
+<li><b>MOVCPM 32 *</b> - Constructs a CP/M image for 32Kb of memory and stores it in memory for SYSGEN. A message will be displayed when using the "*" parameter 'READY FOR "SYSGEN" OR "SAVE 34 CPM32.COM"'. This message actually indicates how this image may be used.</li>
+<li><b>SYSGEN</b> - Offers a series of prompts, asking for source and destination, for transferring a CP/M image.</li>
+</ul>
+
+<h3>11. STAT</h3>
+<p>Displays disk and file information; allows setting file attributes; allows assigning peripherals.
+ Examples:</p>
+<ul><li><b>STAT</b> - Displays the space available on disks.</li>
+<li><b>STAT A: DSK:</b> - Displays detailed information about the disk in the A drive.</li>
+<li><b>STAT A:*.*</b> - Displays detailed information about the files on the disk in the A drive.</li>
+<li><b>STAT A:TEST.TXT $R/O</b> - Sets the "read only" attribute on the file TEST.TXT. Recognized attributes: $R/O (read only), $R/W (read write), $SYS (system, does not appear in the DIR listing), $DIR (regular file, is shown in the DIR command output). All the files are shown in the STAT command output, regardless of their attributes.</li>
+<li><b>STAT DEV:</b> - Displays current device assignments.</li>
+<li><b>STAT CON:=TTY:</b> - Sets the console device to TTY. If there is no device attached the system will become unresponsive.</li>
+</ul>
+
+<h3>12. LOAD</h3>
+<p>Reads a file in Intel HEX format and produces an executable COM file.
+ Examples:</p>
+<ul><li><b>LOAD TEST.HEX</b> - Will create TEST.COM from the Intel HEX file.</li>
+</ul>
+
+<h3>13. DDT</h3>
+<p>This is the CP/M debugger. Allows debugging executable files. An executable file is loaded at address 0100H. When exiting the debugger, the debugged file remains loaded, therefore it can be saved using the SAVE command.
+ Examples:</p>
+<ul><li><b>DDT PIP.COM</b> - Loads the file PIP.COM into memory and awaits for debugger commands.</li>
+</ul>
+
+<h3>14. ED</h3>
+<p>This is the CP/M line editor. Allows basic editing operations for files. Operations are performed by using commands (for example "I" for insert, "1:100T" display first 100 lines, "Q" exits the editor). Text entering is ended with CTRL+Z, returning to the editor command interface. 
+ Examples:</p>
+<ul><li><b>ED TEST.TXT</b> - Loads the file TEST.TXT into the editor.</li>
+</ul>
+
+<h3>15. SUBMIT</h3>
+<p>Allows for command batching. Multiple commands are stored in a file (usually with a .SUB extension) and can be submitted for batch processing with the SUBMIT command. Command line parameters can be accessed within the batch file with $1 ... $n. The SUBMIT command actually creates a file called "$$$.SUB" on the current disk that contains the batched commands. This file will be executed when the CP/M system is booted or reloaded from the current disk. If created on the B: drive for example, the file $$$.SUB will not be executed until the disk is inserted in the A: drive and the system is loaded from it. When a new file is submitted, the contents of $$$.SUB is overwritten.
+ Examples:</p>
+<ul><li><b>SUBMIT CLEANUP.SUB TEST</b> - Will submit for batch processing the file CLEANUP.SUB with the parameter TEST. The parameter can be accessed inside the CLEANUP.SUB batch file using "$1".</li>
+</ul>
+
+<h3>16. XSUB</h3>
+<p>This command is useful in a .SUB file to redirect console input to the following lines in the .SUB file. Following an XSUB command, the .SUB file should contain first the command to be executed and on the following lines the input for the executed command.
+ </p>
+
+<h3>17. DUMP</h3>
+<p>Displays the contents of a file in hexadecimal. Examples:
+ </p>
+<ul><li><b>DUMP DUMP.COM</b> - Displays in hexadecimal the contents of the file "DUMP.COM".</li>
+</ul>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TojA-z3TSI8?si=XMYLuFVj94AaboiR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h2>More from this site</h2>
+<ul>
+</ul>
+
+
+
+<h2>Useful external resources</h2>
+<ul>
+<li><a href="" target="_blank"></a></li>
+<li><a href="http://www.moria.de/~michael/cpmtools/" target="_blank">cpmtools</a> | <a href="https://github.com/lipro-cpm4l/cpmtools" target="_blank">Forked on GitHub</a> | <a href="https://www.cpm8680.com/cpmtools/" target="_blank">Documentation</a></li>
+<li><a href="https://linux.die.net/man/5/cpm" target="_blank">Man pages for cpmtools on Linux</a></li>
+<li><a href="http://www.retroarchive.org/cpm/games/games.htm" target="_blank">CP/M Games</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CP/M" target="_blank">Wikipedia article</a></li>
+<li><a href="http://www.gaby.de/edefine.htm" target="_blank">Some CP/M history</a></li>
+<li><a href="https://landley.net/history/mirror/cpm/history.html" target="_blank">More CP/M history</a></li>
+<li><a href="https://www.digitalresearch.biz/index.htm" target="_blank">A lot of history about Digital Research, CP/M, Gary Kildall, etc.</a></li>
+<li><a href="http://dunfield.classiccmp.org/index.htm" target="_blank">Information about computers running CP/M</a></li>
+<li><a href="https://www.seasip.info/Cpm/format22.html" target="_blank">CP/M 2.2 Disk formats and Directory entries</a></li>
+<li><a href="https://www.sydneysmith.com/wordpress/1651/cpm-disk-formats/" target="_blank">CP/M Disk formats</a></li>
+<li><a href="https://www.sydneysmith.com/wordpress/1643/edit-cpm-disk-image/" target="_blank">cpmfs tool for disk images on Windows</a></li>
+<li><a href="http://cpmarchives.classiccmp.org/live.php" target="_blank">CP/M Live</a></li>
+<li><a href="http://cpmarchives.classiccmp.org/ftp.php?b=cpm%2FSoftware%2FUserGroups%2FSIGM%2FDSK" target="_blank">CP/M disk images (.DSK)</a></li>
+<li><a href="https://retrobrewcomputers.org/n8vem-pbwiki-archive/0/38274845/4200862/index.htm" target="_blank">Executable (.COM) programs for CP/M 2.2 (including some FORMAT commands), probably for Z80 cpu</a></li>
+</ul>
+
+</div>
+</div>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BT4H4TG4TN');
+</script>
+
+</body>
+</html>

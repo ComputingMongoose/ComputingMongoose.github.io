@@ -19,6 +19,7 @@ $sys->setMenu([
 	["title"=>"JavaSystemSimulator","tag"=>"jss","link"=>"content/jss/index_jss.php","items"=>["TAG:jss"]],
 	["title"=>"CPUs","tag"=>"cpu","link"=>"content/cpu/index_cpu.php","items"=>["TAG:cpu"]],
 	["title"=>"Serial Peripherals","tag"=>"serial","link"=>"content/serial/index_serial.php","items"=>["TAG:serial"]],
+	["title"=>"Operating Systems","tag"=>"os","link"=>"content/os/index_os.php","items"=>["TAG:os"]],
 	["title"=>"Utilities","tag"=>"utils","link"=>"content/utils/index_utils.php","items"=>["TAG:utils"]],
 ]);
 

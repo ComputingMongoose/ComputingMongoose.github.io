@@ -40,9 +40,12 @@ https://computingmongoose.github.io/jss/howto_run_simulation.html
 https://computingmongoose.github.io/jss/howto_simulation.html
 https://computingmongoose.github.io/jss/index_jss.html
 https://computingmongoose.github.io/jss/screenshots.html
+https://computingmongoose.github.io/os/cpm.html
+https://computingmongoose.github.io/os/index_os.html
 https://computingmongoose.github.io/serial/adm3a.html
 https://computingmongoose.github.io/serial/asr33.html
 https://computingmongoose.github.io/serial/index_serial.html
+https://computingmongoose.github.io/utils/githubdownloadirectory.html
 https://computingmongoose.github.io/utils/hexfileviewer.html
 https://computingmongoose.github.io/utils/index_utils.html
 https://computingmongoose.github.io/utils/jsscpuspeccompiler.html
