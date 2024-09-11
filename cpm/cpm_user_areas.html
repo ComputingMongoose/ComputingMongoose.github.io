@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>CP/M</title>
+<title>CP/M User Areas</title>
 <link rel="stylesheet" href="../css/style.css"/>
 <script async src="../scripts/utils.js"></script>
 
@@ -40,57 +40,31 @@
 
 <div class="content1">
 <div class="content">
-<h1>CP/M</h1>
+<h1>CP/M User Areas</h1>
 
-<p>CP/M (Control Program/Monitor or Control Program for Microcomputers) is an operating system initially created in 1974 for microcomputers based on <a href="#">Intel 8080</a> CPUs, by Gary Kildall of Digital Research Inc. Version 2.0 was released in 1979, soon followed by version 2.2. Version 3.0 (also called CP/M Plus) was released in 1982. The last release was 3.1 in 1983. CP/M versions are available for systems using different CPUs, including Intel 8080, Z80, and Intel 8086.
-</p>
+<p>The CP/M (Control Program for Microcomputers) operating system has a single directory for storing files on a disk. It does not have a directory structure (or directory tree) as in other modern operating systems. However, it allows organizing files into user areas, within the same directory. As the name suggests, this feature is particularly useful when multiple users use the same computer and storage device for their own personal files. Then, each user will employ his/her own user area for the files. This feature is also useful for organizing different files into "pseudo-directories".</p>
 
-<h2>Commands</h2>
-<p>CP/M has a number of internal commands (also called "resident" commands). In addition, any executable program (with a ".COM" extension) can be considered as a "transient" command. In this section, there will be presented the internal commands and the transient commands available on the CP/M 2.2 system disk. In order to execute a transient command, the system disk must be present in the drive and either be selected or the command must be prefixed with the drive letter (similar to any executable program). Equipment manufacturers who licensed CP/M for use with their systems may have included additional commands on the system disk. These will not be covered here. 
-</p>
-<p>Transient commands end with ".COM" (the normal extension for exacutable files), however when running them the extension may be ommited. Thus "PIP.COM" can also be executed by simply typing "PIP". This is true for all executables.</p>
-<p>In the following list of commands, the first 7 are resident commands while the following are transient commands.</p>
-
-<h3>1. Drive selection</h3>
-<p>CP/M allows selecting a drive by specifying its letter followed by a colon sign. Example: "A:", "B:". The new drive becomes active and this is reflected in the operating system's prompt ("A>", "B>").</p>
-
-<h3>2. DIR</h3>
-<p>This command allows visualizing the contents of a disk. By default it will show all files without the SYS attribute from the currently selected disk. However, the command allows specifying a different disk or a pattern for displaying files. Examples: </p>
-<ul><li><b>DIR</b> - Default behaviour</li>
-<li><b>DIR B:</b> - Displays files from the B drive</li>
-<li><b>DIR B:*.COM</b> - Displays executable files (with ".COM" extension) from the B drive</li>
-<li><b>DIR TEST???.BAS</b> - Displays files starting with "TEST", followed by any 3 letters, with a ".BAS" extension, from the current drive</li>
+<p>CP/M supports 16 user areas, with numeric values from 0 to 15. By default, the operating system boots into user area 0. The user area can be manually changed with the "USER" command.
+Examples:</p>
+<ul><li><b>USER 5</b> - Changes to user area 5.</li>
+<li><b>USER 0</b> - Changes to the default user area 0.</li>
 </ul>
 
-<h3>3. TYPE</h3>
-<p>Displays the contents of a text file. Example "TYPE TEST1.BAS".</p>
+<p>By default there are no files in a new user area. System files are available in user area 0. When the user command is entered, the new user area is set at operating system level, for all drives. This means that system files (including transient commands) are no longer available. Usually, PIP.COM will be copied to a new user area in order to allow transferring other files as needed.</p>
 
-<h3>4. ERA</h3>
-<p>Deletes files from disk. By default there is no UNDELETE/UNERASE command available, therefore this command must be used with care. Read-Only files cannot be deleted with ERA. For deleting a Read-Only file, first the attribute must be removed using STAT and then ERA can be used to delete the file. Examples:</p>
-<ul><li><b>ERA TEST.BAS</b> - Deletes the file "TEST.BAS" from the current drive</li>
-<li><b>ERA B:*.BAS</b> - Deletes all files with ".BAS" extension from the B drive</li>
-<li><b>ERA *.*</b> - Deletes all the files from the current disk</li>
-</ul>
+<h3>How to transfer PIP.COM to a new user area ?</h3>
+<p>Since by default no transient commands are available in a new user area, the procedure for copying PIP (or other commands) is by loading it into memory (using DDT) and then using the resident command "SAVE" to store it on disk in the new user area.</p>
+<p>Commands:</p>
+<pre>
 
-<h3>5. REN</h3>
-<p>This command renames a file. The REN command operates on a single drive. It is not possible to move a file by renaming it to another drive. Examples:</p>
-<ul><li><b>REN TEST.OLD=TEST.BAS</b> - Renames the file "TEST.BAS" to "TEST.OLD".</li>
-<li><b>REN B:MYTEST.BAS=B:TEST.BAS</b> - Renames the file "TEST.BAS" to "MYTEST.BAS" on the B drive.</li>
-</ul>
+</pre>
 
-<h3>6. SAVE</h3>
-<p>The SAVE command stores a number of memory pages (256-byte blocks), starting at address 0100H, to a disk file. This is useful for moving programs to a different user area (such as moving PIP). It is also useful if a file was loaded into memory by some other program. Examples:</p>
-<ul><li><b>SAVE 10 TEST.COM</b> - Saves 10 pages of memory into TEST.COM on the current drive</li>
-<li><b>SAVE 29 PIP.COM</b> - Saves 29 pages of memory into PIP.COM. This is useful when transferring PIP to a new user area.</li>
-</ul>
 
-<h3>7. USER</h3>
 <p>Selects an user area. The default user area is 0. Possible values range from 0 to 15. A user area can be used to store user files in separate spaces, when multiple users are using the same computer, or to organize the files. Transfer between user areas can be done with PIP. 
  Examples:</p>
 <ul><li><b>USER 5</b> - Changes to user area 5.</li>
 <li><b>USER 0</b> - Changes to the default user area 0.</li>
 </ul>
-
 
 <h3>8. PIP</h3>
 <p>The main purpose of the PIP ("Peripheral Interchange Program") command is to copy files. However, it accepts also devices (such as CON:, PRN:, etc.) as input/output. This allows for other usage scenarios, like creating a file, printing a file, displaying a file, etc. 
@@ -160,7 +134,7 @@
 
 <h2>More from this site</h2>
 <ul>
-<li><a href="../cpm/cpm_user_areas.html">CP/M User Areas</a></li>
+<li><a href="../os/cpm.html">CP/M</a></li>
 </ul>
 
 

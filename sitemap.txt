@@ -41,7 +41,10 @@ https://computingmongoose.github.io/jss/howto_simulation.html
 https://computingmongoose.github.io/jss/index_jss.html
 https://computingmongoose.github.io/jss/screenshots.html
 https://computingmongoose.github.io/os/cpm.html
+https://computingmongoose.github.io/cpm/cpm_user_areas.html
 https://computingmongoose.github.io/os/index_os.html
+https://computingmongoose.github.io/pico/counter7segments.html
+https://computingmongoose.github.io/pico/index_pico.html
 https://computingmongoose.github.io/serial/adm3a.html
 https://computingmongoose.github.io/serial/asr33.html
 https://computingmongoose.github.io/serial/index_serial.html

@@ -16,6 +16,7 @@ $sys->runStep1();
 echo "DONE\n";
 
 $sys->setMenu([
+	["title"=>"Raspberry Pi Pico","tag"=>"pico","link"=>"content/pico/index_pico.php","items"=>["TAG:pico"]],
 	["title"=>"JavaSystemSimulator","tag"=>"jss","link"=>"content/jss/index_jss.php","items"=>["TAG:jss"]],
 	["title"=>"CPUs","tag"=>"cpu","link"=>"content/cpu/index_cpu.php","items"=>["TAG:cpu"]],
 	["title"=>"Serial Peripherals","tag"=>"serial","link"=>"content/serial/index_serial.php","items"=>["TAG:serial"]],
